@@ -1,0 +1,12 @@
+{
+	"classPath": "src/",
+	"contributors": ["mc2it", "cedx"],
+	"dependencies": {"coconut.data": "", "tink_web": ""},
+	"description": "Dell API client.",
+	"license": "MIT",
+	"name": "dell",
+	"releasenote": "Initial release.",
+	"tags": ["api", "client", "cross", "dell", "order", "purchase", "quote"],
+	"url": "https://github.com/mc2it/dell.hx",
+	"version": "0.1.0"
+}
