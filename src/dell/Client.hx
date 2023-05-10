@@ -1,6 +1,9 @@
 package dell;
 
 import dell.auth.AccessToken;
+import dell.order_status.OrderStatusApi;
+import dell.purchase_order.PurchaseOrderApi;
+import dell.quote.QuoteApi;
 import tink.Url;
 import tink.Web;
 import tink.http.Header.HeaderField;
@@ -16,13 +19,13 @@ final class Client {
 
 	/** Value indicating whether this client is authorized. **/
 	public var isAuthorized(get, never): Bool;
-		function get_isAuthorized() return accessToken != null && !accessToken.isExpired;
+		function get_isAuthorized() return accessToken.satisfies(token -> !token.hasExpired);
 
 	/** Value indicating whether the client operates in test mode. **/
 	public final isTest: Bool;
 
 	/** The access token. **/
-	var accessToken: Null<AccessToken> = null;
+	var accessToken: Option<AccessToken> = None;
 
 	/** The front page or home URL of the instance making requests. **/
 	final clientId: String;
@@ -31,7 +34,7 @@ final class Client {
 	final clientSecret: String;
 
 	/** The remote API client. **/
-	final remote: Remote<RemoteApi>;
+	@:allow(dell) final remote: Remote<RemoteApi>;
 
 	/** Creates a new client. **/
 	public function new(clientId: String, clientSecret: String, ?options: ClientOptions) {
@@ -43,13 +46,22 @@ final class Client {
 	}
 
 	/** Retrieves an authorization token. **/
-	public function authorize(): Promise<AccessToken> return remote.auth()
+	public function authorize() return remote.auth()
 		.create({client_id: clientId, client_secret: clientSecret, grant_type: "client_credentials"})
-		.next(token -> accessToken = token);
+		.next(token -> { accessToken = Some(token); token; });
+
+	/** Returns the order status endpoint. **/
+	public inline function orderStatus() return new OrderStatusApi(this);
+
+	/** Returns the purchase order endpoint. **/
+	public inline function purchseOrder() return new PurchaseOrderApi(this);
+
+	/** Returns the quote endpoint. **/
+	public inline function quote() return new QuoteApi(this);
 
 	/** Intercepts and modifies the outgoing requests. **/
 	function onRequest(request: OutgoingRequest): Promise<OutgoingRequest> {
-		final header = isAuthorized ? request.header.concat([new HeaderField(AUTHORIZATION, 'Bearer ${accessToken.token}')]) : request.header;
+		final header = isAuthorized ? request.header.concat([new HeaderField(AUTHORIZATION, 'Bearer ${accessToken.sure().token}')]) : request.header;
 		return new OutgoingRequest(header, request.body);
 	}
 }

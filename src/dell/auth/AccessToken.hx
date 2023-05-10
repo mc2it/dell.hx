@@ -9,18 +9,18 @@ package dell.auth;
 }))
 class AccessToken implements Model {
 
-	/** The expiration date of this token. **/
+	/** The expiration date and time of this token. **/
 	@:constant var expires: Date;
 
 	/** Value indicating whether this token has expired. **/
-	@:computed var isExpired: Bool = Date.now().getTime() > expires.getTime();
+	@:computed var hasExpired: Bool = Date.now().getTime() > expires.getTime();
 
 	/** The OAuth scope. **/
-	@:constant var scope: String;
+	@:constant var scope: String = @byDefault "oob";
 
 	/** The access token. **/
 	@:constant var token: String;
 
 	/** The token type. **/
-	@:constant var type: String;
+	@:constant var type: String = @byDefault "Bearer";
 }

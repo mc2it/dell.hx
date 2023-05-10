@@ -1,0 +1,9 @@
+@locale = fr-FR
+@quoteNumber = <quote-number>
+@quoteVersion = <quote-version>
+
+###
+
+// Gets quote information by number, version and locale.
+GET {{baseUrl}}/api/v1/quote/{{quoteNumber}}/{{quoteVersion}}/{{locale}}
+Accept: application/json
