@@ -5,5 +5,13 @@
 	"files.insertFinalNewline": true,
 	"files.trimTrailingWhitespace": true,
 	"[markdown]": {"files.trimTrailingWhitespace": false},
-	"[yaml]": {"editor.insertSpaces": true}
+	"[yaml]": {"editor.insertSpaces": true},
+	"rest-client.environmentVariables": {
+		"dev": {
+			"accessToken": "<access-token>",
+			"baseUrl": "https://apigtwb2c.us.dell.com",
+			"clientId": "DELL_CLIENT_ID",
+			"clientSecret": "DELL_CLIENT_SECRET"
+		}
+	}
 }
