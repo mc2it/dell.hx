@@ -47,7 +47,7 @@ final class Client {
 
 	/** Retrieves an authorization token. **/
 	public function authorize() return remote.auth()
-		.create({client_id: clientId, client_secret: clientSecret, grant_type: "client_credentials"})
+		.authorize({client_id: clientId, client_secret: clientSecret, grant_type: "client_credentials"})
 		.next(token -> { accessToken = Some(token); token; });
 
 	/** Returns the order status endpoint. **/

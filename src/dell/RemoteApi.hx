@@ -1,6 +1,7 @@
 package dell;
 
 import dell.auth.AccessToken;
+import dell.quote.Quote;
 
 /** Defines the interface of the remote API. **/
 interface RemoteApi {
@@ -28,27 +29,34 @@ private interface AuthController {
 	/** Retrieves an authorization token. **/
 	@:consumes("application/x-www-form-urlencoded")
 	@:post("/oauth/v2/token")
-	function create(body: {client_id: String, client_secret: String, grant_type: String}): AccessToken;
+	function authorize(body: {client_id: String, client_secret: String, grant_type: String}): AccessToken;
 }
 
-/** Manages the orders. **/
+/** Provides the ability to retrieve Dell order status information for all order types. **/
 private interface OrderController {
-	// TODO
+
+	/** Retrieves order status information. **/
 	@:post("/api/search")
-	function view(): Noise;
+	function search(): Noise;
+
+	/** Retrieves order status information based on wildcard purchase order search. **/
+	@:post("/api/wildcard/search")
+	function searchWithWildcard(): Noise;
 }
 
-/** Manages the purchase orders. **/
+/** Provides the ability to submit a purchase order to Dell. **/
 private interface PurchaseOrderController {
-	// TODO
+
+	/** Submits a purchase order. **/
 	@:params(version = header["Accepts-Version"])
 	@:post("/")
-	function create(version: String): Noise;
+	function submit(version: String): Noise;
 }
 
-/** Manages the quotes. **/
+/** Provides the ability to retrieve Dell quote information. **/
 private interface QuoteController {
-	// TODO
+
+	/** Gets quote information by number, version and locale. **/
 	@:get('/api/v1/quote/$quoteNumber/$quoteVersion/$locale')
-	function view(quoteNumber: String, quoteVersion: Int, locale: String): Noise;
+	function get(quoteNumber: String, quoteVersion: Int, locale: String): Quote;
 }
