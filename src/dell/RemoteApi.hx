@@ -36,12 +36,14 @@ private interface AuthController {
 private interface OrderController {
 
 	/** Retrieves order status information. **/
+	@:params(version = header["Accepts-Version"])
 	@:post("/api/search")
-	function search(): Noise;
+	function search(version: String): Noise;
 
 	/** Retrieves order status information based on wildcard purchase order search. **/
+	@:params(version = header["Accepts-Version"])
 	@:post("/api/wildcard/search")
-	function searchWithWildcard(): Noise;
+	function searchWithWildcard(version: String): Noise;
 }
 
 /** Provides the ability to submit a purchase order to Dell. **/
@@ -57,6 +59,7 @@ private interface PurchaseOrderController {
 private interface QuoteController {
 
 	/** Gets quote information by number, version and locale. **/
+	@:params(version = header["Accepts-Version"])
 	@:get('/api/v1/quote/$quoteNumber/$quoteVersion/$locale')
-	function get(quoteNumber: String, quoteVersion: Int, locale: String): Quote;
+	function get(quoteNumber: Float, quoteVersion: Int, locale: String, version: String): Quote;
 }

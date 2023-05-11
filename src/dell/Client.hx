@@ -52,13 +52,16 @@ final class Client {
 			.next(token -> { accessToken = token; });
 
 	/** Returns the order status endpoint. **/
-	public inline function orderStatus() return new OrderStatusApi(this);
+	public inline function orderStatus(version = "2.0")
+		return new OrderStatusApi(this, version);
 
 	/** Returns the purchase order endpoint. **/
-	public inline function purchseOrder() return new PurchaseOrderApi(this);
+	public inline function purchseOrder(version = "2.0")
+		return new PurchaseOrderApi(this, version);
 
 	/** Returns the quote endpoint. **/
-	public inline function quote() return new QuoteApi(this);
+	public inline function quote(version = "1.0")
+		return new QuoteApi(this, version);
 
 	/** Intercepts and modifies the outgoing requests. **/
 	function onRequest(request: OutgoingRequest): Promise<OutgoingRequest> {

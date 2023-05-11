@@ -2,6 +2,35 @@ package dell.quote;
 
 /** Represents a quote. **/
 @:jsonParse(json -> new dell.quote.Quote(json))
+@:jsonStringify(quote -> {
+	affinityId: quote.affinityId,
+	// TODO billingContactobject{8}
+	createdBy: quote.createdBy,
+	creationDate: quote.creationDate,
+	currency: quote.currency,
+	// TODO dealDetailsobject{8}
+	// TODO endUserobject{12}
+	expirationDate: quote.expirationDate,
+	finalPrice: quote.finalPrice,
+	gstin: quote.gstin,
+	id: quote.id,
+	// TODO items array [object]{20}
+	listPrice: quote.listPrice,
+	nonTaxableAmount: quote.nonTaxableAmount,
+	quoteNumber: quote.quoteNumber, // TODO Int64 ?????
+	quoteType: quote.quoteType,
+	quoteVersion: quote.quoteVersion,
+	resellerAffinityId: quote.resellerAffinityId,
+	// TODO resellerobject{6}
+	salesPrice: quote.salesPrice,
+	// TODO salesRepDetails array [object]{3}
+	solutionId: quote.solutionId,
+	solutionVersion: quote.solutionVersion,
+	taxableAmount: quote.taxableAmount,
+	totalEcoFee: quote.totalEcoFee,
+	totalShipping: quote.totalShipping,
+	totalTax: quote.totalTax
+})
 class Quote implements Model {
 	@:constant var affinityId: String = @byDefault "";
 	// TODO @:constant var billingContactobject{8}
@@ -17,7 +46,7 @@ class Quote implements Model {
 	// TODO @:constant var items array [object]{20}
 	@:constant var listPrice: Float = @byDefault 0;
 	@:constant var nonTaxableAmount: Float = @byDefault 0;
-	@:constant var quoteNumber: Int = @byDefault 0;
+	@:constant var quoteNumber: Float = @byDefault 0; // TODO Int64 ?????
 	@:constant var quoteType: String = @byDefault "";
 	@:constant var quoteVersion: Int = @byDefault 0;
 	@:constant var resellerAffinityId: String = @byDefault "";

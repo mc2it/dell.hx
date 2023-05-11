@@ -7,6 +7,12 @@ package dell.auth;
 	token: json.access_token,
 	type: json.token_type
 }))
+@:jsonStringify(accessToken -> {
+	expires: accessToken.expires,
+	scope: accessToken.scope,
+	token: accessToken.token,
+	type: accessToken.type
+})
 class AccessToken implements Model {
 
 	/** The expiration date and time of this token. **/

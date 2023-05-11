@@ -2,6 +2,27 @@ package dell.quote;
 
 /** Represents a stock keeping unit. **/
 @:jsonParse(json -> new dell.quote.Sku(json))
+@:jsonStringify(sku -> {
+	description: sku.description,
+	ecoFee: sku.ecoFee,
+	isHardwareMaintenaceSku: sku.isHardwareMaintenaceSku,
+	isHardwareSku: sku.isHardwareSku,
+	isServiceSku: sku.isServiceSku,
+	isSoftwareMaintenaceSku: sku.isSoftwareMaintenaceSku,
+	isSoftwareSku: sku.isSoftwareSku,
+	isTiedSku: sku.isTiedSku,
+	lineId: sku.lineId,
+	lineNumber: sku.lineNumber,
+	lineOfBusiness: sku.lineOfBusiness,
+	listPrice: sku.listPrice,
+	parentItemId: sku.parentItemId,
+	productCategory: sku.productCategory,
+	quantity: sku.quantity,
+	salesPrice: sku.salesPrice,
+	skuNumber: sku.skuNumber,
+	unitListPrice: sku.unitListPrice,
+	unitSalesPrice: sku.unitSalesPrice
+})
 class Sku implements Model {
 	@:constant var description: String = @byDefault "";
 	@:constant var ecoFee: Float = @byDefault 0;
