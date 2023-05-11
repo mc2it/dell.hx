@@ -1,17 +1,17 @@
-package dell.auth;
+package dell;
 
 /** Represents an authorization token. **/
-@:jsonParse(json -> new dell.auth.AccessToken({
+@:jsonParse(json -> new dell.AccessToken({
 	expires: DateTools.delta(Date.now(), json.expires_in * DateTools.seconds(1)),
 	scope: json.scope,
 	token: json.access_token,
 	type: json.token_type
 }))
 @:jsonStringify(accessToken -> {
-	expires: accessToken.expires,
+	access_token: accessToken.token,
+	expires_in: Std.int(Math.max(0, (accessToken.expires.getTime() - Date.now().getTime()) / DateTools.seconds(1))),
 	scope: accessToken.scope,
-	token: accessToken.token,
-	type: accessToken.type
+	token_type: accessToken.type
 })
 class AccessToken implements Model {
 
@@ -19,7 +19,7 @@ class AccessToken implements Model {
 	@:constant var expires: Date;
 
 	/** Value indicating whether this token has expired. **/
-	@:computed var hasExpired: Bool = Date.now().getTime() > expires.getTime();
+	@:computed var hasExpired: Bool = expires.getTime() <= Date.now().getTime();
 
 	/** The OAuth scope. **/
 	@:constant var scope: String = @byDefault "oob";

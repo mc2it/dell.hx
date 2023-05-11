@@ -1,23 +1,25 @@
 package dell.quote;
 
+import haxe.Int64;
+
 /** Represents a quote. **/
-@:jsonParse(json -> new dell.quote.Quote(json))
+@:jsonParse(json -> dell.quote.Quote.fromJson(json))
 @:jsonStringify(quote -> {
 	affinityId: quote.affinityId,
 	// TODO billingContactobject{8}
 	createdBy: quote.createdBy,
-	creationDate: quote.creationDate,
+	creationDate: quote.creationDate != null ? Tools.toIsoString(quote.creationDate) : null,
 	currency: quote.currency,
 	// TODO dealDetailsobject{8}
 	// TODO endUserobject{12}
-	expirationDate: quote.expirationDate,
+	expirationDate: quote.expirationDate != null ? Tools.toIsoString(quote.expirationDate) : null,
 	finalPrice: quote.finalPrice,
 	gstin: quote.gstin,
 	id: quote.id,
 	// TODO items array [object]{20}
 	listPrice: quote.listPrice,
 	nonTaxableAmount: quote.nonTaxableAmount,
-	quoteNumber: quote.quoteNumber, // TODO Std.parseFloat(Int64.toStr(quote.quoteNumber))
+	quoteNumber: Tools.toFloat(quote.quoteNumber),
 	quoteType: quote.quoteType,
 	quoteVersion: quote.quoteVersion,
 	resellerAffinityId: quote.resellerAffinityId,
@@ -46,9 +48,9 @@ class Quote implements Model {
 	// TODO @:constant var items array [object]{20}
 	@:constant var listPrice: Float = @byDefault 0;
 	@:constant var nonTaxableAmount: Float = @byDefault 0;
-	@:constant var quoteNumber: Float = @byDefault 0; // TODO Int64 ?????
+	@:constant var quoteNumber: Int64 = @byDefault 0;
 	@:constant var quoteType: String = @byDefault "";
-	@:constant var quoteVersion: Int = @byDefault 0;
+	@:constant var quoteVersion: Int = @byDefault 1;
 	@:constant var resellerAffinityId: String = @byDefault "";
 	// TODO @:constant var resellerobject{6}
 	@:constant var salesPrice: Float = @byDefault 0;
@@ -62,12 +64,33 @@ class Quote implements Model {
 
 	/** Creates a new quote from the specified JSON object. **/
 	public static function fromJson(json: QuoteData) return new Quote({
-		email: json.comment_author_email ?? "",
-		ipAddress: json.user_ip,
-		name: json.comment_author ?? "",
-		role: json.user_role ?? "",
-		url: json.comment_author_url,
-		userAgent: json.user_agent ?? ""
+		affinityId: json.affinityId ?? "",
+		// TODO billingContactobject{8}
+		createdBy: json.createdBy ?? "",
+		creationDate: json.creationDate != null ? Tools.ofIsoString(json.creationDate) : null,
+		currency: json.currency ?? "",
+		// TODO dealDetailsobject{8}
+		// TODO endUserobject{12}
+		expirationDate: json.expirationDate != null ? Tools.ofIsoString(json.expirationDate) : null,
+		finalPrice: json.finalPrice ?? 0.0,
+		gstin: json.gstin ?? "",
+		id: json.id ?? "",
+		// TODO items array [object]{20}
+		listPrice: json.listPrice ?? 0.0,
+		nonTaxableAmount: json.nonTaxableAmount ?? 0.0,
+		quoteNumber: Int64.fromFloat(json.quoteNumber),
+		quoteType: json.quoteType ?? "",
+		quoteVersion: json.quoteVersion ?? 1,
+		resellerAffinityId: json.resellerAffinityId ?? "",
+		// TODO resellerobject{6}
+		salesPrice: json.salesPrice ?? 0.0,
+		// TODO salesRepDetails array [object]{3}
+		solutionId: json.solutionId ?? "",
+		solutionVersion: json.solutionVersion ?? "",
+		taxableAmount: json.taxableAmount ?? 0.0,
+		totalEcoFee: json.totalEcoFee ?? 0.0,
+		totalShipping: json.totalShipping ?? 0.0,
+		totalTax: json.totalTax ?? 0.0
 	});
 }
 
@@ -87,7 +110,7 @@ typedef QuoteData = {
 	// TODO var ?items array [object]{20}
 	var ?listPrice: Float;
 	var ?nonTaxableAmount: Float;
-	var ?quoteNumber: Float; // TODO Int64 ?????
+	var ?quoteNumber: Float;
 	var ?quoteType: String;
 	var ?quoteVersion: Int;
 	var ?resellerAffinityId: String;
