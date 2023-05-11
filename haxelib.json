@@ -2,7 +2,7 @@
 	"classPath": "src/",
 	"contributors": ["mc2it", "cedx"],
 	"dependencies": {"coconut.data": "", "tink_web": ""},
-	"description": "Dell API client.",
+	"description": "An HTTP client to query the Dell Premier APIs.",
 	"license": "MIT",
 	"name": "dell",
 	"releasenote": "Initial release.",

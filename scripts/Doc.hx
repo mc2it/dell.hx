@@ -9,7 +9,7 @@ function main() {
 
 	Sys.command("haxe --define doc-gen --no-output --xml var/api.xml build.hxml");
 	Sys.command("lix", ["run", "dox",
-		"--define", "description", "Dell API client, implemented in Haxe.",
+		"--define", "description", "An HTTP client to query the Dell Premier APIs, in Haxe.",
 		"--define", "source-path", "https://github.com/mc2it/dell.hx/blob/main/src",
 		"--define", "themeColor", "0xea8220",
 		"--define", "version", Version.packageVersion,
