@@ -14,18 +14,18 @@ using haxe.io.Path;
 /** Submits comments to the [Akismet](https://dell.com) service. **/
 final class Client {
 
+	/** The access token. **/
+	public var accessToken: Null<AccessToken> = null;
+
 	/** The base URL of the remote API endpoint. **/
 	public final baseUrl: Url;
 
 	/** Value indicating whether this client is authorized. **/
 	public var isAuthorized(get, never): Bool;
-		function get_isAuthorized() return accessToken.satisfies(token -> !token.hasExpired);
+		function get_isAuthorized() return accessToken != null && !accessToken.hasExpired;
 
 	/** Value indicating whether the client operates in test mode. **/
 	public final isTest: Bool;
-
-	/** The access token. **/
-	var accessToken: Option<AccessToken> = None;
 
 	/** The front page or home URL of the instance making requests. **/
 	final clientId: String;
@@ -46,9 +46,10 @@ final class Client {
 	}
 
 	/** Retrieves an authorization token. **/
-	public function authorize() return remote.auth()
-		.authorize({client_id: clientId, client_secret: clientSecret, grant_type: "client_credentials"})
-		.next(token -> { accessToken = Some(token); token; });
+	public function authorize(): Promise<AccessToken>
+		return remote.auth()
+			.authorize({client_id: clientId, client_secret: clientSecret, grant_type: "client_credentials"})
+			.next(token -> { accessToken = token; });
 
 	/** Returns the order status endpoint. **/
 	public inline function orderStatus() return new OrderStatusApi(this);
@@ -61,7 +62,7 @@ final class Client {
 
 	/** Intercepts and modifies the outgoing requests. **/
 	function onRequest(request: OutgoingRequest): Promise<OutgoingRequest> {
-		final header = isAuthorized ? request.header.concat([new HeaderField(AUTHORIZATION, 'Bearer ${accessToken.sure().token}')]) : request.header;
+		final header = isAuthorized ? request.header.concat([new HeaderField(AUTHORIZATION, 'Bearer ${accessToken.token}')]) : request.header;
 		return new OutgoingRequest(header, request.body);
 	}
 }

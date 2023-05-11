@@ -11,5 +11,5 @@ class QuoteApi {
 
 	/** Gets quote information by number, version and locale. **/
 	public function get(quoteNumber: String, quoteVersion: Int, locale: String)
-		return client.remote.quotes().view(quoteNumber, quoteVersion, locale);
+		return client.remote.quotes().get(quoteNumber, quoteVersion, locale);
 }

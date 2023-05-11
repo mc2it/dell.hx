@@ -6,11 +6,11 @@ class Quote implements Model {
 	@:constant var affinityId: String = @byDefault "";
 	// TODO @:constant var billingContactobject{8}
 	@:constant var createdBy: String = @byDefault "";
-	@:constant var creationDate: String = @byDefault "";<date-time>
+	@:constant var creationDate: Null<Date> = @byDefault null;
 	@:constant var currency: String = @byDefault "";
 	// TODO @:constant var dealDetailsobject{8}
 	// TODO @:constant var endUserobject{12}
-	@:constant var expirationDate: String = @byDefault "";<date-time>
+	@:constant var expirationDate: Null<Date> = @byDefault null;
 	@:constant var finalPrice: Float = @byDefault 0;
 	@:constant var gstin: String = @byDefault "";
 	@:constant var id: String = @byDefault "";
