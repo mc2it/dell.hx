@@ -49,7 +49,7 @@ final class Client {
 	public function authorize(): Promise<AccessToken>
 		return remote.auth()
 			.authorize({client_id: clientId, client_secret: clientSecret, grant_type: "client_credentials"})
-			.next(token -> { accessToken = token; });
+			.next(token -> accessToken = token);
 
 	/** Returns the order status endpoint. **/
 	public inline function orderStatus(version = "2.0")

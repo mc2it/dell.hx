@@ -17,7 +17,7 @@ package dell.quote;
 	// TODO items array [object]{20}
 	listPrice: quote.listPrice,
 	nonTaxableAmount: quote.nonTaxableAmount,
-	quoteNumber: quote.quoteNumber, // TODO Int64 ?????
+	quoteNumber: quote.quoteNumber, // TODO Std.parseFloat(Int64.toStr(quote.quoteNumber))
 	quoteType: quote.quoteType,
 	quoteVersion: quote.quoteVersion,
 	resellerAffinityId: quote.resellerAffinityId,
@@ -59,4 +59,45 @@ class Quote implements Model {
 	@:constant var totalEcoFee: Float = @byDefault 0;
 	@:constant var totalShipping: Float = @byDefault 0;
 	@:constant var totalTax: Float = @byDefault 0;
+
+	/** Creates a new quote from the specified JSON object. **/
+	public static function fromJson(json: QuoteData) return new Quote({
+		email: json.comment_author_email ?? "",
+		ipAddress: json.user_ip,
+		name: json.comment_author ?? "",
+		role: json.user_role ?? "",
+		url: json.comment_author_url,
+		userAgent: json.user_agent ?? ""
+	});
+}
+
+/** Defines the data of a quote. **/
+typedef QuoteData = {
+	var ?affinityId: String;
+	// TODO var ?billingContactobject{8}
+	var ?createdBy: String;
+	var ?creationDate: String;
+	var ?currency: String;
+	// TODO var ?dealDetailsobject{8}
+	// TODO var ?endUserobject{12}
+	var ?expirationDate: String;
+	var ?finalPrice: Float;
+	var ?gstin: String;
+	var ?id: String;
+	// TODO var ?items array [object]{20}
+	var ?listPrice: Float;
+	var ?nonTaxableAmount: Float;
+	var ?quoteNumber: Float; // TODO Int64 ?????
+	var ?quoteType: String;
+	var ?quoteVersion: Int;
+	var ?resellerAffinityId: String;
+	// TODO var ?resellerobject{6}
+	var ?salesPrice: Float;
+	// TODO var ?salesRepDetails array [object]{3}
+	var ?solutionId: String;
+	var ?solutionVersion: String;
+	var ?taxableAmount: Float;
+	var ?totalEcoFee: Float;
+	var ?totalShipping: Float;
+	var ?totalTax: Float;
 }
