@@ -41,7 +41,7 @@ final class Client {
 	}
 
 	/** Retrieves an authorization token. **/
-	public function authorize() return remote.auth()
+	public function authorize() return remote
 		.authorize({client_id: clientId, client_secret: clientSecret, grant_type: "client_credentials"})
 		.next(response -> { accessToken = response.token; response; });
 
@@ -50,7 +50,7 @@ final class Client {
 		return new OrderStatusApi(this, version);
 
 	/** Returns the purchase order endpoint. **/
-	public inline function purchseOrder(version = "2.0")
+	public inline function purchaseOrder(version = "2.0")
 		return new PurchaseOrderApi(this, version);
 
 	/** Returns the quote endpoint. **/

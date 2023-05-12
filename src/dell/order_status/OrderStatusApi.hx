@@ -15,13 +15,12 @@ final class OrderStatusApi {
 		this.version = version;
 	}
 
-	/** Retrieves order status information. **/
+	/** TODO Retrieves order status information. **/
 	public function search() {
-		// TODO
+		return Promise.reject(new Error(NotImplemented, "OrderStatusApi.search()"));
 	}
 
-	/** Retrieves order status information based on wildcard purchase order search. **/
-	public function searchWithWildcard() {
-		// TODO
-	}
+	/** TODO Retrieves order status information based on wildcard purchase order search. **/
+	public function searchWithWildcard()
+		return Promise.reject(new Error(NotImplemented, "OrderStatusApi.searchWithWildcard()"));
 }

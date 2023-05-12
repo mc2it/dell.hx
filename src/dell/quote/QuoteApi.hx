@@ -19,5 +19,5 @@ final class QuoteApi {
 
 	/** Gets quote information by number, version and locale. **/
 	public function get(quoteNumber: Int64, quoteVersion: Int, locale: String)
-		return client.remote.quotes().get(Tools.toFloat(quoteNumber), quoteVersion, locale, version);
+		return client.remote.quote().get(Tools.toFloat(quoteNumber), quoteVersion, locale);
 }

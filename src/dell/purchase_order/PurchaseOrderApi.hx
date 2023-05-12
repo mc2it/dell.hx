@@ -15,8 +15,7 @@ final class PurchaseOrderApi {
 		this.version = version;
 	}
 
-	/** Submits a purchase order. **/
-	public function submit() {
-		// TODO
-	}
+	/** TODO Submits a purchase order. **/
+	public function submit()
+		return Promise.reject(new Error(NotImplemented, "PurchaseOrderApi.submit()"));
 }
