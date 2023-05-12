@@ -15,7 +15,11 @@ enum abstract SearchKey(String) to String {
 	values: searchParam.values
 })
 class SearchParameter implements Model {
+
+	/** The search key. **/
 	@:constant var key: SearchKey;
+
+	/** The searched values. **/
 	@:constant var values: List<String>;
 }
 
@@ -32,6 +36,10 @@ enum abstract WildcardSearchKey(String) to String {
 	value: searchParam.value
 })
 class WildcardSearchParameter implements Model {
+
+	/** The search key. **/
 	@:constant var key: WildcardSearchKey;
+
+	/** The searched value. **/
 	@:constant var value: String;
 }

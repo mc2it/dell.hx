@@ -11,9 +11,22 @@ Content-Type: application/json
 
 {
 	"searchParameter": [
-		{
-			"key": "po_numbers",
-			"values": ["{{poNumber}}"]
-		}
+		{"key": "po_numbers", "values": ["{{poNumber}}"]}
+	]
+}
+
+###
+
+// Retrieves order status information based on wildcard purchase order search.
+POST {{baseUrl}}/PROD/order-status/api/wildcard/search
+Accept: application/json
+Accepts-Version: 2.0
+Authorization: Bearer {{accessToken}}
+Content-Type: application/json
+
+{
+	"searchParameter": [
+		{"key": "country_code", "value": "FR"},
+		{"key": "po_number", "value": "{{poNumber}}"}
 	]
 }
