@@ -1,9 +1,10 @@
 package dell;
 
+import dell.order_status.SearchParameter;
 import dell.quote.Quote;
 
 /** Defines the interface of the remote API. **/
-interface RemoteApi {
+@:noDoc interface RemoteApi {
 
 	/** The order status controller. **/
 	@:sub("/PROD/order-status/api")
@@ -29,12 +30,12 @@ private interface OrderStatusController {
 	/** Retrieves order status information. **/
 	@:params(version = header["Accepts-Version"])
 	@:post("/search")
-	function search(version: String): Noise;
+	function search(body: {searchParameter: Array<SearchParameter>}, version: String): Noise;
 
 	/** Retrieves order status information based on wildcard purchase order search. **/
 	@:params(version = header["Accepts-Version"])
 	@:post("/wildcard/search")
-	function searchWithWildcard(version: String): Noise;
+	function searchWithWildcard(body: {searchParameter: Array<WildcardSearchParameter>}, version: String): Noise;
 }
 
 /** Provides the ability to submit a purchase order to Dell. **/

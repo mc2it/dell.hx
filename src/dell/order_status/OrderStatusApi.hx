@@ -1,5 +1,7 @@
 package dell.order_status;
 
+import dell.order_status.SearchParameter.WildcardSearchParameter;
+
 /** Provides the ability to retrieve Dell order status information for all order types. **/
 final class OrderStatusApi {
 
@@ -15,12 +17,11 @@ final class OrderStatusApi {
 		this.version = version;
 	}
 
-	/** TODO Retrieves order status information. **/
-	public function search() {
-		return Promise.reject(new Error(NotImplemented, "OrderStatusApi.search()"));
-	}
+	/** Retrieves order status information. **/
+	public function search(parameters: Array<SearchParameter>)
+		return client.remote.orderStatus().search({searchParameter: parameters}, version);
 
-	/** TODO Retrieves order status information based on wildcard purchase order search. **/
-	public function searchWithWildcard()
-		return Promise.reject(new Error(NotImplemented, "OrderStatusApi.searchWithWildcard()"));
+	/** Retrieves order status information based on wildcard purchase order search. **/
+	public function searchWithWildcard(parameters: Array<WildcardSearchParameter>)
+		return client.remote.orderStatus().searchWithWildcard({searchParameter: parameters}, version);
 }

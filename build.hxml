@@ -7,4 +7,11 @@
 --library coconut.data
 --library tink_web
 
+dell.AccessToken
 dell.Client
+dell.order_status.OrderStatusApi
+dell.order_status.SearchParameter
+dell.quote.Address
+dell.quote.Quote
+dell.quote.QuoteApi
+dell.quote.Sku
