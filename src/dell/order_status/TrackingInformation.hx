@@ -30,3 +30,25 @@ class TrackingInformation implements Model {
 	/** The shipment tracking number. **/
 	@:constant var waybill: String = @byDefault "";
 }
+
+/** Defines the data of a tracking information. **/
+typedef TrackingInformationData = {
+
+	/** The carrier milestone information. **/
+	var ?carrierMileStone: String;
+
+	/** The carrier name. **/
+	var ?carrierName: String;
+
+	/** The carrier tracking link. **/
+	var ?carrierTrackingURL: String;
+
+	/** The milestone event description. **/
+	var ?milestoneEventDescription: String;
+
+	/** The milestone status change. **/
+	var ?milestoneStatusChange: Bool;
+
+	/** The shipment tracking number. **/
+	var ?waybill: String;
+}

@@ -22,3 +22,19 @@ class ProductInfo implements Model {
 	/** The SKU number. **/
 	@:constant var skuNumber: String = @byDefault "";
 }
+
+/** Defines the data of a product information. **/
+typedef ProductInfoData = {
+
+	/** The SKU item description. **/
+	var ?description: String;
+
+	/** The item quantity ordered. **/
+	var ?itemQuantity: String;
+
+	/** The Dell service tag / serial number. **/
+	var ?serviceTags: List<String>;
+
+	/** The SKU number. **/
+	var ?skuNumber: String;
+}

@@ -34,3 +34,28 @@ class PurchaseOrderLine implements Model {
 	/** The unit price for the product line item. **/
 	@:constant var unitPrice: Float = @byDefault 0;
 }
+
+/** Defines the data of a purchase order line. **/
+typedef PurchaseOrderLineData = {
+
+	/** The partner's internal part number. **/
+	var ?buyerPartNumber: String;
+
+	/** The Dell's part number. **/
+	var ?dellPartNumber: String;
+
+	/** The product description per line item. **/
+	var ?description: String;
+
+	/** The purchase order line number. **/
+	var ?lineNumber: String;
+
+	/** The current status of the purchase order line number. **/
+	var ?lineStatus: String;
+
+	/** The line quantity ordered. **/
+	var ?quantityOrdered: Int;
+
+	/** The unit price for the product line item. **/
+	var ?unitPrice: Float;
+}

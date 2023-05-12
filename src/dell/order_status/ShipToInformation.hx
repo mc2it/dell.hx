@@ -38,3 +38,31 @@ class ShipToInformation implements Model {
 	/** The state or province. **/
 	@:constant var stateProvince: String = @byDefault "";
 }
+
+/** Defines the data of a shipment information. **/
+typedef ShipToInformationData = {
+
+	/** The city. **/
+	var ?city: String;
+
+	/** The company name. **/
+	var ?companyName: String;
+
+	/** The first address line. **/
+	var ?contactAddress1: String;
+
+	/** The second address line. **/
+	var ?contactAddress2: String;
+
+	/** The contact name. **/
+	var ?contactName: String;
+
+	/** The country. **/
+	var ?country: String;
+
+	/** The postal code. **/
+	var ?postalCode: String;
+
+	/** The state or province. **/
+	var ?stateProvince: String;
+}
