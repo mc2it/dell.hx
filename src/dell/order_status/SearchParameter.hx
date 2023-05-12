@@ -9,7 +9,6 @@ enum abstract SearchKey(String) to String {
 }
 
 /** Represents a search parameter. **/
-@:jsonParse(json -> new dell.order_status.SearchParameter(json))
 @:jsonStringify(searchParam -> {
 	key: searchParam.key,
 	values: searchParam.values
@@ -17,10 +16,10 @@ enum abstract SearchKey(String) to String {
 class SearchParameter implements Model {
 
 	/** The search key. **/
-	@:constant var key: SearchKey;
+	@:editable var key: SearchKey;
 
 	/** The searched values. **/
-	@:constant var values: List<String>;
+	@:editable var values: List<String>;
 }
 
 /** Defines the allowed values for a wildcard search key. **/
@@ -30,7 +29,6 @@ enum abstract WildcardSearchKey(String) to String {
 }
 
 /** Represents a wildcard search parameter. **/
-@:jsonParse(json -> new dell.order_status.WildcardSearchParameter(json))
 @:jsonStringify(searchParam -> {
 	key: searchParam.key,
 	value: searchParam.value
@@ -38,8 +36,8 @@ enum abstract WildcardSearchKey(String) to String {
 class WildcardSearchParameter implements Model {
 
 	/** The search key. **/
-	@:constant var key: WildcardSearchKey;
+	@:editable var key: WildcardSearchKey;
 
 	/** The searched value. **/
-	@:constant var value: String;
+	@:editable var value: String;
 }
