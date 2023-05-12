@@ -81,7 +81,7 @@ class DellOrder implements Model {
 		invoiceNumber: json.invoiceNumber ?? "",
 		orderNumber: json.orderNumber ?? "",
 		orderStatus: json.orderStatus ?? "",
-		productInfo: json.productInfo != null ? json.productInfo.map(ProductInfo.new) : [],
+		productInfo: json.productInfo != null ? json.productInfo.map(ProductInfo.fromJson) : [],
 		purchaseOrderLines: json.purchaseOrderLines != null ? json.purchaseOrderLines.map(PurchaseOrderLine.new) : [],
 		revisedDeliveryDate: json.revisedDeliveryDate != null ? Tools.ofIsoString(json.revisedDeliveryDate) : null,
 		revisedShipmentDate: json.revisedShipmentDate != null ? Tools.ofIsoString(json.revisedShipmentDate) : null,

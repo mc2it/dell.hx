@@ -34,6 +34,7 @@ import haxe.Int64;
 	totalTax: quote.totalTax
 })
 class Quote implements Model {
+
 	@:constant var affinityId: String = @byDefault "";
 	// TODO @:constant var billingContactobject{8}
 	@:constant var createdBy: String = @byDefault "";

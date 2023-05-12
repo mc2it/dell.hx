@@ -16,6 +16,7 @@ package dell.quote;
 	state: address.state
 })
 class Address implements Model {
+
 	@:constant var city: String = @byDefault "";
 	@:constant var country: String = @byDefault "";
 	@:constant var countryCode: Int = @byDefault 0;
