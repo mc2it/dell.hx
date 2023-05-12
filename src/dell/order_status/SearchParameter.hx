@@ -29,7 +29,7 @@ enum abstract WildcardSearchKey(String) to String {
 	var PurchaseOrderNumber = "po_number";
 }
 
-/** Represents a search parameter. **/
+/** Represents a wildcard search parameter. **/
 @:jsonParse(json -> new dell.order_status.WildcardSearchParameter(json))
 @:jsonStringify(searchParam -> {
 	key: searchParam.key,
