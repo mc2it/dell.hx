@@ -15,7 +15,7 @@ using StringTools;
 
 /** Converts the specified 64-bit integer to a float number. **/
 @:noDoc function toFloat(number: Int64)
-	return (number.high * Math.pow(2, 32)) + (number.low >>> 0);
+	return Std.parseFloat(Int64.toStr(number));
 
 /** Converts the specified date to an ISO 8601 string, using the UTC time zone. **/
 @:noDoc function toIsoString(date: Date)
