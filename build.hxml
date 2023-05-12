@@ -11,6 +11,8 @@ dell.AccessToken
 dell.Client
 dell.order_status.OrderStatusApi
 dell.order_status.SearchParameter
+dell.order_status.ShipToInformation
+dell.order_status.TrackingInformation
 dell.purchase_order.PurchaseOrderApi
 dell.quote.Address
 dell.quote.Quote
