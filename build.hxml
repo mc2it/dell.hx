@@ -10,6 +10,7 @@
 dell.AccessToken
 dell.Client
 dell.order_status.DellOrder
+dell.order_status.OrderStatus
 dell.order_status.OrderStatusApi
 dell.order_status.ProductInfo
 dell.order_status.PurchaseOrderDetails
