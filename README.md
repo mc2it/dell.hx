@@ -1,5 +1,5 @@
 # Dell API Client for Haxe
-![Haxe](https://badgen.net/badge/haxe/%3E%3D4.3.0/green) ![Haxelib](https://badgen.net/haxelib/v/dell) ![License](https://badgen.net/haxelib/license/dell) ![Downloads](https://badgen.net/haxelib/d/dell) ![Coverage](https://badgen.net/codecov/c/github/mc2it/dell.hx)
+![Haxe](https://badgen.net/badge/haxe/%3E%3D4.3.0/green) ![Haxelib](https://badgen.net/haxelib/v/dell) ![License](https://badgen.net/haxelib/license/dell) ![Downloads](https://badgen.net/haxelib/d/dell)
 
 An HTTP client to query the [Dell Premier APIs](https://developer.dell.com/apis),
 in [Haxe](https://haxe.org).

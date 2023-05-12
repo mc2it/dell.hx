@@ -1,5 +1,4 @@
 --class-path scripts
 --class-path src
---library tink_core
 --library tink_http
 --library tink_querystring
