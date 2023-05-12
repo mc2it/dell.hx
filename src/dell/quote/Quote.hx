@@ -8,18 +8,18 @@ import haxe.Int64;
 	affinityId: quote.affinityId,
 	// TODO billingContactobject{8}
 	createdBy: quote.createdBy,
-	creationDate: quote.creationDate != null ? Tools.toIsoString(quote.creationDate) : null,
+	creationDate: quote.creationDate != null ? dell.Tools.toIsoString(quote.creationDate) : null,
 	currency: quote.currency,
 	// TODO dealDetailsobject{8}
 	// TODO endUserobject{12}
-	expirationDate: quote.expirationDate != null ? Tools.toIsoString(quote.expirationDate) : null,
+	expirationDate: quote.expirationDate != null ? dell.Tools.toIsoString(quote.expirationDate) : null,
 	finalPrice: quote.finalPrice,
 	gstin: quote.gstin,
 	id: quote.id,
 	// TODO items array [object]{20}
 	listPrice: quote.listPrice,
 	nonTaxableAmount: quote.nonTaxableAmount,
-	quoteNumber: Tools.toFloat(quote.quoteNumber),
+	quoteNumber: dell.Tools.toFloat(quote.quoteNumber),
 	quoteType: quote.quoteType,
 	quoteVersion: quote.quoteVersion,
 	resellerAffinityId: quote.resellerAffinityId,
@@ -48,7 +48,7 @@ class Quote implements Model {
 	// TODO @:constant var items array [object]{20}
 	@:constant var listPrice: Float = @byDefault 0;
 	@:constant var nonTaxableAmount: Float = @byDefault 0;
-	@:constant var quoteNumber: Int64 = @byDefault 0;
+	@:skipCheck @:constant var quoteNumber: Int64 = @byDefault 0;
 	@:constant var quoteType: String = @byDefault "";
 	@:constant var quoteVersion: Int = @byDefault 1;
 	@:constant var resellerAffinityId: String = @byDefault "";

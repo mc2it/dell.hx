@@ -7,12 +7,6 @@ package dell;
 	token: json.access_token,
 	type: json.token_type
 }))
-@:jsonStringify(accessToken -> {
-	access_token: accessToken.token,
-	expires_in: Std.int(Math.max(0, (accessToken.expires.getTime() - Date.now().getTime()) / DateTools.seconds(1))),
-	scope: accessToken.scope,
-	token_type: accessToken.type
-})
 class AccessToken implements Model {
 
 	/** The expiration date and time of this token. **/
