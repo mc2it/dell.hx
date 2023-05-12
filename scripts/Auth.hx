@@ -1,7 +1,7 @@
 //! --define hxnodejs --define no-deprecation-warnings --library hxnodejs --library tink_http --library tink_querystring
 import haxe.Json;
-import haxe.io.Bytes;
 import sys.io.File;
+import tink.Chunk;
 import tink.QueryString;
 import tink.Url;
 import tink.http.Client;
@@ -11,11 +11,11 @@ using tink.CoreApi;
 
 /** Authenticates the user. **/
 function main() {
-	final body = Bytes.ofString(QueryString.build({
+	final body: Chunk = QueryString.build({
 		client_id: Sys.getEnv("DELL_CLIENT_ID"),
 		client_secret: Sys.getEnv("DELL_CLIENT_SECRET"),
 		grant_type: "client_credentials"
-	}));
+	});
 
 	final headers = [
 		new HeaderField(CONTENT_LENGTH, body.length),

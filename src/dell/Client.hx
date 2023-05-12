@@ -1,6 +1,5 @@
 package dell;
 
-import dell.auth.AccessToken;
 import dell.order_status.OrderStatusApi;
 import dell.purchase_order.PurchaseOrderApi;
 import dell.quote.QuoteApi;

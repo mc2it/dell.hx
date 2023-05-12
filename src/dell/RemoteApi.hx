@@ -1,6 +1,5 @@
 package dell;
 
-import dell.auth.AccessToken;
 import dell.quote.Quote;
 
 /** Defines the interface of the remote API. **/
