@@ -1,5 +1,6 @@
 package dell;
 
+import dell.order_status.OrderStatus;
 import dell.order_status.SearchParameter;
 import dell.quote.Quote;
 
@@ -30,12 +31,12 @@ private interface OrderStatusController {
 	/** Retrieves order status information. **/
 	@:params(version = header["Accepts-Version"])
 	@:post("/search")
-	function search(body: {searchParameter: Array<SearchParameter>}, version: String): Noise;
+	function search(body: {searchParameter: Array<SearchParameter>}, version: String): OrderStatus;
 
 	/** Retrieves order status information based on wildcard purchase order search. **/
 	@:params(version = header["Accepts-Version"])
 	@:post("/wildcard/search")
-	function searchWithWildcard(body: {searchParameter: Array<WildcardSearchParameter>}, version: String): Noise;
+	function searchWithWildcard(body: {searchParameter: Array<WildcardSearchParameter>}, version: String): OrderStatus;
 }
 
 /** Provides the ability to submit a purchase order to Dell. **/
