@@ -1,4 +1,4 @@
 # Changelog
 
 ## Version 0.1.0
-- Initial release.
+- Provides support for the Order Status API.
