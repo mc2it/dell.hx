@@ -22,12 +22,16 @@ final class OrderStatusApi {
 	/** Retrieves order status information. **/
 	public function search(parameters: Map<SearchKey, Array<String>>) {
 		final params = [for (key => values in parameters) new SearchParameter({key: key, values: values})];
-		return client.remote.orderStatus().search({searchParameter: params}, version);
+		return client.remote.orderStatus()
+			.search({searchParameter: params}, version)
+			.next(orderStatus -> orderStatus.purchaseOrderDetails);
 	}
 
 	/** Retrieves order status information based on wildcard purchase order search. **/
 	public function searchWithWildcard(parameters: Map<WildcardSearchKey, String>) {
 		final params = [for (key => value in parameters) new WildcardSearchParameter({key: key, value: value})];
-		return client.remote.orderStatus().searchWithWildcard({searchParameter: params}, version);
+		return client.remote.orderStatus()
+			.searchWithWildcard({searchParameter: params}, version)
+			.next(orderStatus -> orderStatus.purchaseOrderDetails);
 	}
 }
