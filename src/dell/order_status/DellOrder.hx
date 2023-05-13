@@ -2,7 +2,8 @@ package dell.order_status;
 
 import dell.order_status.TrackingInformation.TrackingInformationData;
 import dell.order_status.ShipToInformation.ShipToInformationData;
-import dell.order_status.PurchaseOrderLine.PurchaseOrderLineData;
+import dell.order_status.PurchaseOrder.PurchaseOrderLine;
+import dell.order_status.PurchaseOrder.PurchaseOrderLineData;
 import dell.order_status.ProductInfo.ProductInfoData;
 
 /** Represents a Dell order. **/
