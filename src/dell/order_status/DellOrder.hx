@@ -21,7 +21,7 @@ import dell.order_status.ProductInfo.ProductInfoData;
 	revisedDeliveryDate: dellOrder.revisedDeliveryDate != null ? dell.Tools.toIsoString(dellOrder.revisedDeliveryDate) : null,
 	revisedShipmentDate: dellOrder.revisedShipmentDate != null ? dell.Tools.toIsoString(dellOrder.revisedShipmentDate) : null,
 	shipToInformation: dellOrder.shipToInformation,
-	statusDateTime: dellOrder.statusDateTime,
+	statusDateTime: dellOrder.statusDateTime != null ? dell.Tools.toIsoString(dellOrder.statusDateTime) : null,
 	trackingInformation: dellOrder.trackingInformation
 })
 class DellOrder implements Model {
