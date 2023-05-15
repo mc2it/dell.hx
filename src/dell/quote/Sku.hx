@@ -24,7 +24,6 @@ package dell.quote;
 	unitSalesPrice: sku.unitSalesPrice
 })
 class Sku implements Model {
-
 	@:constant var description: String = @byDefault "";
 	@:constant var ecoFee: Float = @byDefault 0;
 	@:constant var isHardwareMaintenaceSku: Bool = @byDefault false;
