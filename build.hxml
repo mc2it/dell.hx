@@ -21,9 +21,12 @@ dell.purchase_order.PurchaseOrderApi
 dell.quote.Address
 dell.quote.BillingContact
 dell.quote.DealDetails
+dell.quote.EndUser
+dell.quote.EstimatedDateRange
 dell.quote.PhoneContact
 dell.quote.Quote
 dell.quote.QuoteApi
 dell.quote.Reseller
+dell.quote.Shipment
 dell.quote.ShippingContact
 dell.quote.Sku
