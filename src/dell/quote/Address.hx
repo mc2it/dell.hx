@@ -28,3 +28,18 @@ class Address implements Model {
 	@:constant var region: String = @byDefault "";
 	@:constant var state: String = @byDefault "";
 }
+
+/** Defines the data of an address. **/
+typedef AddressData = {
+	var ?city: String;
+	var ?country: String;
+	var ?countryCode: Int;
+	var ?line1: String;
+	var ?line2: String;
+	var ?line3: String;
+	var ?line4: String;
+	var ?postalCode: String;
+	var ?province: String;
+	var ?region: String;
+	var ?state: String;
+}

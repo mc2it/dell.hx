@@ -1,12 +1,14 @@
 package dell.quote;
 
+import dell.quote.BillingContact.BillingContactData;
+import dell.quote.Reseller.ResellerData;
 import haxe.Int64;
 
 /** Represents a quote. **/
 @:jsonParse(json -> dell.quote.Quote.fromJson(json))
 @:jsonStringify(quote -> {
 	affinityId: quote.affinityId,
-	// TODO billingContactobject{8}
+	billingContact: quote.billingContact,
 	createdBy: quote.createdBy,
 	creationDate: quote.creationDate != null ? dell.Tools.toIsoString(quote.creationDate) : null,
 	currency: quote.currency,
@@ -22,8 +24,8 @@ import haxe.Int64;
 	quoteNumber: dell.Tools.toFloat(quote.quoteNumber),
 	quoteType: quote.quoteType,
 	quoteVersion: quote.quoteVersion,
+	reseller: quote.reseller,
 	resellerAffinityId: quote.resellerAffinityId,
-	// TODO resellerobject{6}
 	salesPrice: quote.salesPrice,
 	// TODO salesRepDetails array [object]{3}
 	solutionId: quote.solutionId,
@@ -34,9 +36,8 @@ import haxe.Int64;
 	totalTax: quote.totalTax
 })
 class Quote implements Model {
-
 	@:constant var affinityId: String = @byDefault "";
-	// TODO @:constant var billingContactobject{8}
+	@:constant var billingContact: Null<BillingContact> = @byDefault null;
 	@:constant var createdBy: String = @byDefault "";
 	@:constant var creationDate: Null<Date> = @byDefault null;
 	@:constant var currency: String = @byDefault "";
@@ -52,8 +53,8 @@ class Quote implements Model {
 	@:skipCheck @:constant var quoteNumber: Int64 = @byDefault 0;
 	@:constant var quoteType: String = @byDefault "";
 	@:constant var quoteVersion: Int = @byDefault 1;
+	@:constant var reseller: Null<Reseller> = @byDefault null;
 	@:constant var resellerAffinityId: String = @byDefault "";
-	// TODO @:constant var resellerobject{6}
 	@:constant var salesPrice: Float = @byDefault 0;
 	// TODO @:constant var salesRepDetails array [object]{3}
 	@:constant var solutionId: String = @byDefault "";
@@ -66,7 +67,7 @@ class Quote implements Model {
 	/** Creates a new quote from the specified JSON object. **/
 	public static function fromJson(json: QuoteData) return new Quote({
 		affinityId: json.affinityId ?? "",
-		// TODO billingContactobject{8}
+		billingContact: json.billingContact != null ? BillingContact.fromJson(json.billingContact) : null,
 		createdBy: json.createdBy ?? "",
 		creationDate: json.creationDate != null ? Tools.ofIsoString(json.creationDate) : null,
 		currency: json.currency ?? "",
@@ -82,8 +83,8 @@ class Quote implements Model {
 		quoteNumber: Int64.fromFloat(json.quoteNumber),
 		quoteType: json.quoteType ?? "",
 		quoteVersion: json.quoteVersion ?? 1,
+		// TODO reseller: json.reseller != null ? new Reseller(json.reseller) : null,
 		resellerAffinityId: json.resellerAffinityId ?? "",
-		// TODO resellerobject{6}
 		salesPrice: json.salesPrice ?? 0.0,
 		// TODO salesRepDetails array [object]{3}
 		solutionId: json.solutionId ?? "",
@@ -98,7 +99,7 @@ class Quote implements Model {
 /** Defines the data of a quote. **/
 typedef QuoteData = {
 	var ?affinityId: String;
-	// TODO var ?billingContactobject{8}
+	var ?billingContact: BillingContactData;
 	var ?createdBy: String;
 	var ?creationDate: String;
 	var ?currency: String;
@@ -114,8 +115,8 @@ typedef QuoteData = {
 	var ?quoteNumber: Float;
 	var ?quoteType: String;
 	var ?quoteVersion: Int;
+	var ?reseller: ResellerData;
 	var ?resellerAffinityId: String;
-	// TODO var ?resellerobject{6}
 	var ?salesPrice: Float;
 	// TODO var ?salesRepDetails array [object]{3}
 	var ?solutionId: String;

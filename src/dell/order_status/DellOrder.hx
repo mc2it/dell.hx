@@ -9,6 +9,7 @@ import dell.order_status.ProductInfo.ProductInfoData;
 /** Represents a Dell order. **/
 @:jsonParse(json -> dell.order_status.DellOrder.fromJson(json))
 @:jsonStringify(dellOrder -> {
+	actualDeliveryDate: dellOrder.actualDeliveryDate != null ? dell.Tools.toIsoString(dellOrder.actualDeliveryDate) : null,
 	actualShipmentDate: dellOrder.actualShipmentDate != null ? dell.Tools.toIsoString(dellOrder.actualShipmentDate) : null,
 	dellPurchaseId: dellOrder.dellPurchaseId,
 	estimatedDeliveryDate: dellOrder.estimatedDeliveryDate != null ? dell.Tools.toIsoString(dellOrder.estimatedDeliveryDate) : null,
@@ -27,7 +28,10 @@ import dell.order_status.ProductInfo.ProductInfoData;
 })
 class DellOrder implements Model {
 
-	/** The date the item actually shipped. **/
+	/** The date the item was actually delivered. **/
+	@:constant var actualDeliveryDate: Null<Date> = @byDefault null;
+
+	/** The date the item was actually shipped. **/
 	@:constant var actualShipmentDate: Null<Date> = @byDefault null;
 
 	/** The Dell purchase identifiers. **/
@@ -74,6 +78,7 @@ class DellOrder implements Model {
 
 	/** Creates a new Dell order from the specified JSON object. **/
 	public static function fromJson(json: DellOrderData) return new DellOrder({
+		actualDeliveryDate: json.actualDeliveryDate != null ? Tools.ofIsoString(json.actualDeliveryDate) : null,
 		actualShipmentDate: json.actualShipmentDate != null ? Tools.ofIsoString(json.actualShipmentDate) : null,
 		dellPurchaseId: json.dellPurchaseId ?? "",
 		estimatedDeliveryDate: json.estimatedDeliveryDate != null ? Tools.ofIsoString(json.estimatedDeliveryDate) : null,
@@ -95,7 +100,10 @@ class DellOrder implements Model {
 /** Defines the data of a Dell order. **/
 typedef DellOrderData = {
 
-	/** The date the item actually shipped. **/
+	/** The date the item was actually delivered. **/
+	var ?actualDeliveryDate: String;
+
+	/** The date the item was actually shipped. **/
 	var ?actualShipmentDate: String;
 
 	/** The Dell purchase identifiers. **/
@@ -132,7 +140,7 @@ typedef DellOrderData = {
 	var ?revisedShipmentDate: String;
 
 	/** The shipment information. **/
-	var ?shipToInformation: Null<ShipToInformationData>;
+	var ?shipToInformation: ShipToInformationData;
 
 	/** The date for the current status. **/
 	var ?statusDateTime: String;

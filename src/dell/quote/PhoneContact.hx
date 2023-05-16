@@ -22,3 +22,15 @@ class PhoneContact implements Model {
 	@:constant var number2: String = @byDefault "";
 	@:constant var phoneType: String = @byDefault "";
 }
+
+/** Defines the data of a phone contact. **/
+typedef PhoneContactData = {
+	var ?areaCode: String;
+	var ?countryCode: String;
+	var ?extension: String;
+	var ?mediaType: String;
+	var ?number: String;
+	var ?number1: String;
+	var ?number2: String;
+	var ?phoneType: String;
+}
