@@ -3,7 +3,7 @@ package dell.order_status;
 import dell.order_status.DellOrder.DellOrderData;
 
 /** Provides the details of a purchase order. **/
-@:jsonParse(json -> new dell.order_status.PurchaseOrder.PurchaseOrderDetails(json))
+@:jsonParse(json -> dell.order_status.PurchaseOrder.PurchaseOrderDetails.fromJson(json))
 @:jsonStringify(poDetails -> {
 	dellOrders: poDetails.dellOrders,
 	purchaseOrderDate: poDetails.purchaseOrderDate != null ? dell.Tools.toIsoString(poDetails.purchaseOrderDate) : null,
@@ -24,7 +24,7 @@ class PurchaseOrderDetails implements Model {
 	/** The current purchase order status. **/
 	@:constant var purchaseOrderStatus: PurchaseOrderStatus = @byDefault "";
 
-	/** Creates a new Dell order from the specified JSON object. **/
+	/** Creates new purchase order details from the specified JSON object. **/
 	public static function fromJson(json: PurchaseOrderDetailsData) return new PurchaseOrderDetails({
 		dellOrders: json.dellOrders != null ? json.dellOrders.map(DellOrder.fromJson) : [],
 		purchaseOrderDate: json.purchaseOrderDate != null ? Tools.ofIsoString(json.purchaseOrderDate) : null,

@@ -1,5 +1,8 @@
 package dell.quote;
 
+import dell.quote.Address.AddressData;
+import dell.quote.PhoneContact.PhoneContactData;
+
 /** Represents a shipping contact. **/
 @:jsonParse(json -> dell.quote.ShippingContact.fromJson(json))
 @:jsonStringify(contact -> {
@@ -37,7 +40,7 @@ class ShippingContact implements Model {
 
 /** Defines the data of a shipping contact. **/
 typedef ShippingContactData = {
-	var ?address: Address;
+	var ?address: AddressData;
 	var ?companyName: String;
 	var ?customerNumber: String;
 	var ?digitalFulfillmentEmail: String;
