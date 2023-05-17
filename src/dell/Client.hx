@@ -10,7 +10,7 @@ import tink.http.Request.OutgoingRequest;
 import tink.web.proxy.Remote;
 using haxe.io.Path;
 
-/** Submits comments to the [Akismet](https://dell.com) service. **/
+/** An HTTP client to query the [Dell Premier APIs](https://developer.dell.com/apis). **/
 final class Client {
 
 	/** The access token. **/

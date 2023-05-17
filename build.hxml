@@ -24,9 +24,11 @@ dell.quote.DealDetails
 dell.quote.EndUser
 dell.quote.EstimatedDateRange
 dell.quote.PhoneContact
+dell.quote.ProblemDetails
 dell.quote.Quote
 dell.quote.QuoteApi
 dell.quote.Reseller
+dell.quote.SalesRepDetails
 dell.quote.Shipment
 dell.quote.ShippingContact
 dell.quote.Sku
