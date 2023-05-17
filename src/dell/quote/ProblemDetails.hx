@@ -14,7 +14,7 @@ import haxe.DynamicAccess;
 })
 class ProblemDetails implements Model {
 	@:constant var detail: String = @byDefault "";
-	@:constant var extensions: Null<DynamicAccess<Dynamic>> = null;
+	@:skipCheck @:constant var extensions: Null<DynamicAccess<Dynamic>> = null;
 	@:constant var instance: String = @byDefault "";
 	@:constant var status: Int = @byDefault 0;
 	@:constant var title: String = @byDefault "";

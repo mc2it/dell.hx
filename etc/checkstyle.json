@@ -1,7 +1,8 @@
 {
 	"defaultSeverity": "ERROR",
 	"exclude": {
-		"path": "RELATIVE_TO_PROJECT"
+		"path": "RELATIVE_TO_PROJECT",
+		"Dynamic": ["src/dell/quote/ProblemDetails"]
 	},
 	"checks": [
 		{"type": "BlockBreakingConditional"},
@@ -68,7 +69,7 @@
 		{"type": "Dynamic"},
 
 		{"type": "ArrayAccess"},
-		{"type": "EmptyLines"},
+		{"type": "EmptyLines", "props": {"requireEmptyLineAfterClass": false}},
 		{"type": "ExtendedEmptyLines"},
 		{"type": "IndentationCharacter"},
 		{"type": "OperatorWhitespace"},
