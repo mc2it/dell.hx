@@ -1,4 +1,4 @@
-//! --class-path src --library tink_core
+//! --class-path src --library coconut.data --library tink_core
 import dell.Version;
 
 /** Publishes the package. **/
