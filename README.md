@@ -14,4 +14,4 @@ in [Haxe](https://haxe.org).
 - [Submit an issue](https://github.com/mc2it/dell.hx/issues)
 
 ## License
-[Dell API Client for Haxe](https://github.com/mc2it/dell.hx) is distributed under the MIT License.
+[Dell API Client for Haxe](https://mc2it.github.io/dell.hx) is distributed under the MIT License.
