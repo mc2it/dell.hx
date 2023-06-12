@@ -8,5 +8,5 @@
 	"releasenote": "Provides support for the Order Status API.",
 	"tags": ["api", "client", "cross", "dell", "order", "purchase", "quote"],
 	"url": "https://mc2it.github.io/dell.hx",
-	"version": "0.1.0"
+	"version": "0.2.0"
 }
