@@ -18,7 +18,7 @@ class AccessToken implements Model {
 	/** The OAuth scope. **/
 	@:constant var scope: String = @byDefault "oob";
 
-	/** The access token. **/
+	/** The token value. **/
 	@:constant var token: String;
 
 	/** The token type. **/

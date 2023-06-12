@@ -14,7 +14,7 @@ using haxe.io.Path;
 final class Client {
 
 	/** The access token. **/
-	public var accessToken(null, default): String = "";
+	public var accessToken(null, default): Null<AccessToken> = null;
 
 	/** The base URL of the remote API endpoint. **/
 	public final baseUrl: Url;
@@ -22,10 +22,10 @@ final class Client {
 	/** Value indicating whether the client operates in test mode. **/
 	public final isTest: Bool;
 
-	/** The front page or home URL of the instance making requests. **/
+	/** The identifier used to authorize this client. **/
 	final clientId: String;
 
-	/** Value indicating whether the client operates in test mode. **/
+	/** The secret used to authorize this client. **/
 	final clientSecret: String;
 
 	/** The remote API client. **/
@@ -41,9 +41,9 @@ final class Client {
 	}
 
 	/** Retrieves an authorization token. **/
-	public function authorize() return remote
+	public function authorize(): Promise<AccessToken> return remote
 		.authorize({client_id: clientId, client_secret: clientSecret, grant_type: "client_credentials"})
-		.next(response -> { accessToken = response.token; response; });
+		.next(response -> accessToken = response);
 
 	/** Returns the order status endpoint. **/
 	public inline function orderStatus(version = "2.0")
@@ -59,7 +59,7 @@ final class Client {
 
 	/** Intercepts and modifies the outgoing requests. **/
 	function onRequest(request: OutgoingRequest): Promise<OutgoingRequest> {
-		final header = accessToken.length > 0 ? request.header.concat([new HeaderField(AUTHORIZATION, 'Bearer ${accessToken}')]) : request.header;
+		final header = accessToken != null ? request.header.concat([new HeaderField(AUTHORIZATION, 'Bearer ${accessToken.token}')]) : request.header;
 		return new OutgoingRequest(header, request.body);
 	}
 }
