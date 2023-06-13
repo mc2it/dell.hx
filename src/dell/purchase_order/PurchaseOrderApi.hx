@@ -9,7 +9,7 @@ final class PurchaseOrderApi {
 	/** The API version number. **/
 	final version: String;
 
-	/** Creates a new purchase order API. **/
+	/** Creates a new Purchase Order API. **/
 	public function new(client: Client, version: String) {
 		this.client = client;
 		this.version = version;

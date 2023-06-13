@@ -13,7 +13,7 @@ final class OrderStatusApi {
 	/** The API version number. **/
 	final version: String;
 
-	/** Creates a new order status API. **/
+	/** Creates a new Order Status API. **/
 	public function new(client: Client, version: String) {
 		this.client = client;
 		this.version = version;

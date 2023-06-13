@@ -11,7 +11,7 @@ final class QuoteApi {
 	/** The API version number. **/
 	final version: String;
 
-	/** Creates a new quote API. **/
+	/** Creates a new Quote API. **/
 	public function new(client: Client, version: String) {
 		this.client = client;
 		this.version = version;
