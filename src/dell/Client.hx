@@ -45,15 +45,15 @@ final class Client {
 		.authorize({client_id: clientId, client_secret: clientSecret, grant_type: "client_credentials"})
 		.next(response -> accessToken = response);
 
-	/** Returns the order status endpoint. **/
+	/** Returns the Order Status API endpoint. **/
 	public inline function orderStatus(version = "2.0")
 		return new OrderStatusApi(this, version);
 
-	/** Returns the purchase order endpoint. **/
+	/** Returns the Purchase Order API endpoint. **/
 	public inline function purchaseOrder(version = "2.0")
 		return new PurchaseOrderApi(this, version);
 
-	/** Returns the quote endpoint. **/
+	/** Returns the Quote API endpoint. **/
 	public inline function quote(version = "1.0")
 		return new QuoteApi(this, version);
 
