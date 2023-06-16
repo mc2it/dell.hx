@@ -4,14 +4,14 @@ package dell.order_status;
 enum abstract OrderStep(String) from String to String {
 
 	/** The order is in production. **/
-	var InProduction; // TODO Dell: en production, MC2IT: ??? confirmé
-
-	/** The order is available. **/
-	var Available; // TODO Dell: build termine ????, MC2IT : ???
+	var InProduction;
 
 	/** The order has been shipped. **/
-	var Shipped; // TODO Dell: expédié, MC2IT: expédié
+	var Shipped;
 
 	/** The order has been delivered. **/
-	var Delivered; // TODO Dell: livré, MC2IT: en stock
+	var Delivered;
+
+	/** The service or subscription is available. **/
+	var Available;
 }
