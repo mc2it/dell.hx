@@ -22,7 +22,7 @@ class PurchaseOrderDetails implements Model {
 	@:constant var purchaseOrderNumber: String = @byDefault "";
 
 	/** The current purchase order status. **/
-	@:constant var purchaseOrderStatus: PurchaseOrderStatus = @byDefault "";
+	@:constant var purchaseOrderStatus: OrderStep = @byDefault "";
 
 	/** Creates new purchase order details from the specified JSON object. **/
 	public static function fromJson(json: PurchaseOrderDetailsData) return new PurchaseOrderDetails({
@@ -31,13 +31,6 @@ class PurchaseOrderDetails implements Model {
 		purchaseOrderNumber: json.purchaseOrderNumber ?? "",
 		purchaseOrderStatus: json.purchaseOrderStatus ?? ""
 	});
-}
-
-/** Defines the status of a purchase order. **/
-enum abstract PurchaseOrderStatus(String) from String to String {
-
-	/** The order has been delivered. **/
-	var Delivered;
 }
 
 /** Defines the data of purchase order details. **/

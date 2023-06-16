@@ -53,7 +53,7 @@ class DellOrder implements Model {
 	@:constant var orderNumber: String = @byDefault "";
 
 	/** The current status of the Dell order. **/
-	@:constant var orderStatus: String = @byDefault "";
+	@:constant var orderStatus: OrderStep = @byDefault "";
 
 	/** The product information. **/
 	@:constant var productInfo: List<ProductInfo> = @byDefault new List();
