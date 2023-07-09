@@ -1,5 +1,5 @@
 //! --class-path src --define no-deprecation-warnings --library coconut.data --library tink_core
-import dell.Version;
+import dell.Platform;
 import sys.FileSystem;
 import sys.io.File;
 using Lambda;
@@ -14,7 +14,7 @@ function main() {
 		"--define", "description", "An HTTP client to query the Dell Premier APIs, in Haxe.",
 		"--define", "source-path", "https://github.com/mc2it/dell.hx/blob/main/src",
 		"--define", "themeColor", "0xea8220",
-		"--define", "version", Version.packageVersion,
+		"--define", "version", Platform.packageVersion,
 		"--define", "website", "https://mc2it.github.io/dell.hx",
 		"--input-path", "var",
 		"--output-path", "docs/api",
