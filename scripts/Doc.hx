@@ -22,5 +22,5 @@ function main() {
 		"--toplevel-package", "dell"
 	]);
 
-	File.copy("docs/favicon.ico", "docs/api/favicon.ico");
+	File.copy("docs/api/favicon.ico", "docs/api/favicon.ico");
 }
