@@ -5,8 +5,8 @@
 	"description": "An HTTP client to query the Dell Premier APIs.",
 	"license": "MIT",
 	"name": "dell",
-	"releasenote": "Improved the compatibility with Haxe 4.3.2.",
+	"releasenote": "The `Client.accessToken` property is now of type `AccessToken`, renamed the `PurchaseOrderStatus` enumeration to `OrderStep`.",
 	"tags": ["api", "client", "cross", "dell", "order", "purchase", "quote"],
 	"url": "https://mc2it.github.io/dell.hx",
-	"version": "0.2.1"
+	"version": "0.2.0"
 }
