@@ -24,7 +24,7 @@ function main() {
 
 	final file = ".vscode/settings.json";
 	final settings = Reflect.field(Json.parse(File.getContent(file)), "rest-client.environmentVariables");
-	final url = Url.parse(Path.addTrailingSlash(settings.dev.baseUrl)).resolve("auth/oauth/v2/token");
+	final url = Url.parse(Path.addTrailingSlash(settings.dev.apiUrl)).resolve("auth/oauth/v2/token");
 
 	Client.fetch(url, {method: POST, headers: headers, body: body}).all().handle(outcome -> switch outcome {
 		case Failure(error):

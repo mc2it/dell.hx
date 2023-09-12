@@ -1,5 +1,5 @@
 // Retrieves an authorization token.
-POST {{baseUrl}}/auth/oauth/v2/token
+POST {{apiUrl}}/auth/oauth/v2/token
 Accept: application/json
 Content-Type: application/x-www-form-urlencoded
 
