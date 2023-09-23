@@ -10,10 +10,6 @@ import tink.http.Request.OutgoingRequest;
 import tink.web.proxy.Remote;
 using haxe.io.Path;
 
-#if js
-import tink.http.clients.JsFetchClient;
-#end
-
 /** An HTTP client to query the [Dell Premier APIs](https://developer.dell.com/apis). **/
 final class Client {
 
@@ -41,7 +37,7 @@ final class Client {
 		this.clientSecret = clientSecret;
 		baseUrl = Path.addTrailingSlash(options != null && options.baseUrl != null ? options.baseUrl.toString() : "https://apigtwb2c.us.dell.com");
 		isTest = options?.isTest ?? false;
-		remote = Web.connect((baseUrl: RemoteApi), {augment: {before: [onRequest]} #if js, client: new JsFetchClient() #end});
+		remote = Web.connect((baseUrl: RemoteApi), {augment: {before: [onRequest]}});
 	}
 
 	/** Retrieves an authorization token. **/
