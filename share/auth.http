@@ -4,5 +4,5 @@ Accept: application/json
 Content-Type: application/x-www-form-urlencoded
 
 grant_type=client_credentials
-&client_id={{$processEnv %clientId}}
-&client_secret={{$processEnv %clientSecret}}
+&client_id={{$processEnv DELL_CLIENT_ID}}
+&client_secret={{$processEnv DELL_CLIENT_SECRET}}

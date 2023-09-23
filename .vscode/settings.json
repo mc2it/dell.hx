@@ -9,9 +9,7 @@
 	"rest-client.environmentVariables": {
 		"dev": {
 			"accessToken": "<access-token>",
-			"apiUrl": "https://apigtwb2c.us.dell.com",
-			"clientId": "DELL_CLIENT_ID",
-			"clientSecret": "DELL_CLIENT_SECRET"
+			"apiUrl": "https://apigtwb2c.us.dell.com"
 		}
 	}
 }
