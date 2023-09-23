@@ -35,7 +35,7 @@ final class Client {
 	public function new(clientId: String, clientSecret: String, ?options: ClientOptions) {
 		this.clientId = clientId;
 		this.clientSecret = clientSecret;
-		baseUrl = Path.addTrailingSlash(options != null && options.baseUrl != null ? options.baseUrl.toString() : "https://apigtwb2c.us.dell.com");
+		baseUrl = (options?.baseUrl?.toString() ?? "https://apigtwb2c.us.dell.com").addTrailingSlash();
 		isTest = options?.isTest ?? false;
 		remote = Web.connect((baseUrl: RemoteApi), {augment: {before: [onRequest]}});
 	}
