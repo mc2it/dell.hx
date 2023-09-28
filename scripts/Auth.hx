@@ -1,4 +1,4 @@
-//! --define hxnodejs --define no-deprecation-warnings --library hxnodejs --library tink_http --library tink_querystring
+//! --define no-deprecation-warnings --library tink_http --library tink_querystring
 import haxe.Json;
 import sys.io.File;
 import tink.Chunk;
