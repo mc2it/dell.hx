@@ -2,9 +2,7 @@
 @quoteNumber = <quote-number>
 @quoteVersion = <quote-version>
 
-###
-
-// Gets quote information by number, version and locale.
+### Gets quote information by number, version and locale.
 GET {{apiUrl}}/PROD/QuoteSearchApi/api/v1/quote/{{quoteNumber}}/{{quoteVersion}}/{{locale}}
 Accept: application/json
 Authorization: Bearer {{accessToken}}
