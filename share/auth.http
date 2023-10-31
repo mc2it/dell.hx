@@ -1,4 +1,4 @@
-### Retrieves an authorization token.
+### Retrieves an authentication token.
 POST {{apiUrl}}/auth/oauth/v2/token
 Accept: application/json
 Content-Type: application/x-www-form-urlencoded
