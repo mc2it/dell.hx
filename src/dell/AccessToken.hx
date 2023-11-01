@@ -1,6 +1,6 @@
 package dell;
 
-/** Represents an authentication token. **/
+/** Represents an authorization token. **/
 @:jsonParse(json -> new dell.AccessToken({
 	expires: DateTools.delta(Date.now(), json.expires_in * DateTools.seconds(1)),
 	scope: json.scope,

@@ -19,10 +19,10 @@ import dell.quote.Quote;
 	@:sub("/PROD/QuoteSearchApi/api")
 	final quote: QuoteController;
 
-	/** Retrieves an authentication token. **/
+	/** Retrieves an authorization token. **/
 	@:consumes("application/x-www-form-urlencoded")
 	@:post("/auth/oauth/v2/token")
-	function authenticate(body: {client_id: String, client_secret: String, grant_type: String}): AccessToken;
+	function authorize(body: {client_id: String, client_secret: String, grant_type: String}): AccessToken;
 }
 
 /** Provides the ability to retrieve Dell order status information for all order types. **/

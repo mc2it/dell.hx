@@ -22,10 +22,10 @@ final class Client {
 	/** Value indicating whether the client operates in test mode. **/
 	public final isTest: Bool;
 
-	/** The identifier used for authentication. **/
+	/** The identifier used to authorize this client. **/
 	final clientId: String;
 
-	/** The secret used for authentication. **/
+	/** The secret used to authorize this client. **/
 	final clientSecret: String;
 
 	/** The remote API client. **/
@@ -40,9 +40,9 @@ final class Client {
 		remote = Web.connect((baseUrl: RemoteApi), {augment: {before: [onRequest]}});
 	}
 
-	/** Retrieves an authentication token. **/
-	public function authenticate(): Promise<AccessToken> return remote
-		.authenticate({client_id: clientId, client_secret: clientSecret, grant_type: "client_credentials"})
+	/** Retrieves an authorization token. **/
+	public function authorize(): Promise<AccessToken> return remote
+		.authorize({client_id: clientId, client_secret: clientSecret, grant_type: "client_credentials"})
 		.next(response -> accessToken = response);
 
 	/** Returns the Order Status API endpoint. **/
