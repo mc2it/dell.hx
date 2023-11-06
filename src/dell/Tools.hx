@@ -9,7 +9,7 @@ using StringTools;
 @:noDoc function ofIsoString(date: String): Date {
 	final parts = date.split(".");
 	if (parts.length != 2) return (date: Stringly);
-	parts[1] = ~/^(\d+)/.map(parts[1], regex -> regex.matched(0).substring(0, 3));
+	parts[1] = ~/^(\d+)/.map(parts[1], regex -> regex.matched(0).substr(0, 3));
 	return (parts.join("."): Stringly);
 }
 
