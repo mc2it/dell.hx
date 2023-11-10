@@ -30,7 +30,7 @@ function main() {
 		case Failure(error):
 			Sys.println(error.message);
 		case Success(response):
-			final accessToken = Json.parse(response.body.toString()).access_token;
+			final accessToken = Json.parse(response.body).access_token;
 			Tools.replaceInFile(file, ~/"accessToken": "[^"]+"/, '"accessToken": "$accessToken"');
 	});
 }
