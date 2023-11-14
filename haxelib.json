@@ -7,6 +7,6 @@
 	"name": "dell",
 	"releasenote": "The `Client.accessToken` property is now of type `AccessToken`, renamed the `PurchaseOrderStatus` enumeration to `OrderStep`.",
 	"tags": ["api", "client", "cross", "dell", "order", "purchase", "quote"],
-	"url": "https://mc2it.github.io/dell.hx",
+	"url": "https://github.com/mc2it/dell.hx",
 	"version": "0.2.0"
 }
